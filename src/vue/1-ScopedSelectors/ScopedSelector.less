@@ -1,0 +1,63 @@
+//:import("!csslocals-from-js-loader!../style_js.js") {
+//:import("../../../my_modules/csslocals-from-js-loader/index.js!../style_js.js") {
+//:import("!!style_js.js") {
+//  root: ScopedRoot_root
+/*
+:import("./ScopedRoot.vue") {
+  root: root
+}
+*/
+
+:import("../cssLocals.js") {
+  root: root;
+  //abc: abc
+}
+
+.output {
+  composes: output from "shared/Snippet/Snippet.css";
+  padding-bottom: 15px;
+}
+
+.fileName {
+  composes: fileName from "shared/Snippet/Snippet.css";
+}
+
+.text {
+  //color: #777;
+  color: gold;
+  font-size: 16px;
+  font-family: helvetica, arial, sans-serif;
+  font-weight: 300;
+}
+
+.composed {
+  composes: heading from "shared/styles/typography.css";
+  color: red;
+}
+
+/*
+.compAbc {
+  composes: abc
+}
+*/
+
+.compText {
+  composes: text
+}
+
+:global {
+  .globalTest {
+    font-size: 30px;
+  }
+}
+
+:reflocal(.root) {
+  margin-top: 32px;
+  .text {
+    color: blueviolet;
+  }
+}
+
+:export {
+  root: root
+}

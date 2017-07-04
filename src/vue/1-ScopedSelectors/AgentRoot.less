@@ -1,0 +1,18 @@
+
+:import("./ScopedRoot.vue") {
+  importRoot: root
+}
+
+.abc {
+  color: darkblue;
+}
+
+.compabc {
+  composes: abc;
+  font-size: large;
+}
+
+:export {
+  agentRoot: importRoot;
+  abc: abc
+}
